@@ -1,5 +1,6 @@
 import pyGDP
 import sys
+import os
 
 #[0] = state [1] = h or f [2] = zone [3]= # of years (default all) [4] = model
 commandlineArgs = sys.argv[1:]
@@ -94,6 +95,8 @@ with open(output, 'w') as csv:
                          str(float(data[i + factorToSkipBy * 2][1]) / 10),
                          str((float(data[i + factorToSkipBy * 3][1]) + float(
                              data[i + factorToSkipBy * 4][1]) / 2))))+'\n')
+os.remove(File_handle)
+os.remove('owslib.log')
 
 
 

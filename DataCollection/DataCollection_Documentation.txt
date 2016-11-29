@@ -12,7 +12,7 @@ Arguments:
 (2) Specify Historical or Future Data (“h” or “f”)
 (3) Zone (pixel id)
 (4) Number of Years of Data you want (default: all available)
-(5) Model (default: GFDL-ESM2M)
+(5) Climate Model (default: GFDL-ESM2M) http://maca.northwestknowledge.net/GCMs.php
 
 Function and Output:
 -Has access to directory (StateGrids) with shapefiles of all states with a grid overlaid on top
