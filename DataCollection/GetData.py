@@ -70,7 +70,7 @@ if model == 'future45':
     if len(commandlineArgs) == 4:
         finalYear = 2005 + int(yrs)
         timeEnd = str(finalYear) + '-12-31T00:00:00.000Z'
-    time = 'fut'
+    time = 'fut45'
 if model == 'future85':
     datasetURI = 'http://cida.usgs.gov/thredds/dodsC/macav2metdata_daily_future'
     dataType = ['tasmax_' + climateModel + '_r1i1p1_rcp85', 'tasmin_' + climateModel +'_r1i1p1_rcp85',
@@ -82,7 +82,7 @@ if model == 'future85':
     if len(commandlineArgs) == 4:
         finalYear = 2005 + int(yrs)
         timeEnd = str(finalYear) + '-12-31T00:00:00.000Z'
-    time = 'fut'
+    time = 'fut85'
 
 print "Gathering Data"
 File_handle = pyGDP.submitFeatureWeightedGridStatistics(Stateshapefile, datasetURI, dataType, timeStart, timeEnd,
