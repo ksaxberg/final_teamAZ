@@ -1,0 +1,41 @@
+GetData.py
+————————————
+Overview:
+This python script gathers downscaled (MACA) climate model data from the USGS Geo Data Portal (https://my.usgs.gov/confluence/display/GeoDataPortal/GDP+Home) and creates a csv of the data for the specified pixel.
+
+Dependencies:
+-Python
+-PyGDP (https://github.com/USGS-CIDA/pyGDP) and its dependencies
+
+Arguments: 
+(1) State (Capitalized)
+(2) Specify Historical or Future Data (“h” or “f”)
+(3) Zone (pixel id)
+(4) Number of Years of Data you want (default: all available)
+(5) Model (default: GFDL-ESM2M)
+
+Function and Output:
+-Has access to directory (StateGrids) with shapefiles of all states with a grid overlaid on top
+	-Naming convention: state_{STATE NAME}Grid.zip
+	-Example: state_ArizonaGrid.zip is the shapefile for the state of Arizona
+	-The grid breaks up the state into approximately 4km x 4km boxes
+	-Each box has an id number associated with it (ids = list of id numbers)
+-Gets the daily climate data for a single box for the desired number of years
+	-Maximum Near-Surface Air Temperature
+	-Minimum Near-Surface Air Temperature
+	-Precipitation
+	-Maximum Surface Relative Humidity
+	-Minimum Surface Relative Humidity
+-Formats the data into a csv with the following fields:
+	(1)Year 
+	(2)Month
+	(3)Day
+	(4)Tmax (deg celsius)
+	(5) Tmin (deg celsius)
+	(6) Precip (mm)
+	(7) T_ave (deg celsius)
+	(8) Precip (cm)
+	(9) Rh_ave (%)
+-Csv output name = {ClimateModel}_{State}_{DataType}_{StartYear}_{EndYear}_{Pixel}.csv
+
+
