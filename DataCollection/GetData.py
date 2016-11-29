@@ -1,20 +1,24 @@
 import pyGDP
 import sys
 
-#[0] = state [1] = h or f [2] = zone [3]= # of years (default all)
+#[0] = state [1] = h or f [2] = zone [3]= # of years (default all) [4] = model
 commandlineArgs = sys.argv[1:]
 
-if len(commandlineArgs) < 3 or len(commandlineArgs) > 4:
-    sys.exit("ERROR: Incorrect number of arguments! (state, model, zone, number of years)")
+if len(commandlineArgs) < 3 or len(commandlineArgs) > 5:
+    sys.exit("ERROR: Incorrect number of arguments! (state, data type, zone, number of years(optional), and model (optional")
 
 state = commandlineArgs[0]
 model = commandlineArgs[1]
 zone = commandlineArgs[2]
-yrs = commandlineArgs[3]
+climateModel = 'GFDL-ESM2M'
+if len(commandlineArgs) == 4 or len(commandlineArgs) == 5:
+    yrs = commandlineArgs[3]
+    if len(commandlineArgs) == 5:
+        climateModel = commandlineArgs[4]
 
 pyGDP = pyGDP.pyGDPwebProcessing()  # initialize a pyGDP wps object
 
-filePath = state + 'Grid.zip'  #which shapefile to use
+filePath = 'StateGrids/state_' + state + 'Grid.zip'  #which shapefile to use
 
 # upload the file to geoserver
 try:
@@ -44,9 +48,9 @@ else:
 
 if model == 'h':
     datasetURI = 'http://cida.usgs.gov/thredds/dodsC/macav2metdata_daily_historical'
-    dataType = ['tasmax_GFDL-ESM2M_r1i1p1_historical', 'tasmin_GFDL-ESM2M_r1i1p1_historical',
-                'pr_GFDL-ESM2M_r1i1p1_historical',
-                'rhsmax_GFDL-ESM2M_r1i1p1_historical', 'rhsmin_GFDL-ESM2M_r1i1p1_historical']
+    dataType = ['tasmax_' + climateModel+ '_r1i1p1_historical', 'tasmin_' + climateModel + '_r1i1p1_historical',
+                'pr_' + climateModel +'_r1i1p1_historical','rhsmax_' + climateModel+ '_r1i1p1_historical',
+                'rhsmin_' + climateModel + '_r1i1p1_historical']
     timeStart = '1950-01-01T00:00:00.000Z'
     if len(commandlineArgs) == 3:
         timeEnd = '2005-12-31T00:00:00.000Z'
@@ -56,9 +60,9 @@ if model == 'h':
     time = 'hist'
 if model == 'f':
     datasetURI = 'http://cida.usgs.gov/thredds/dodsC/macav2metdata_daily_future'
-    dataType = ['tasmax_GFDL-ESM2M_r1i1p1_future', 'tasmin_GFDL-ESM2M_r1i1p1_future',
-                'pr_GFDL-ESM2M_r1i1p1_future',
-                'rhsmax_GFDL-ESM2M_r1i1p1_future', 'rhsmin_GFDL-ESM2M_r1i1p1_future']
+    dataType = ['tasmax_' + climateModel + '_r1i1p1_future', 'tasmin_' + climateModel +'_r1i1p1_future',
+                'pr_' + climateModel +'_r1i1p1_future','rhsmax_' + climateModel + '_r1i1p1_future',
+                'rhsmin_' + climateModel + '_r1i1p1_future']
     timeStart = '2006-01-01T00:00:00.000Z'
     if len(commandlineArgs) == 3:
         timeEnd = '2099-12-31T00:00:00.000Z'
@@ -72,8 +76,7 @@ File_handle = pyGDP.submitFeatureWeightedGridStatistics(Stateshapefile, datasetU
                                                              usr_attribute, usr_value)
 
 input = File_handle
-#output file naming example: STATE_hist_1950_2005_5.csv
-output = state + '_'+ time + '_' + timeStart[0:4] + '_' + timeEnd[0:4] + '_' + zone + '.csv'
+output = climateModel + '_' + state + '_'+ time + '_' + timeStart[0:4] + '_' + timeEnd[0:4] + '_' + zone + '.csv'
 numberOfVariables = 5
 
 print "Creating CSV"
