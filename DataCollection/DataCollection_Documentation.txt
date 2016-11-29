@@ -9,7 +9,7 @@ Dependencies:
 
 Arguments: 
 (1) State (Capitalized)
-(2) Specify Historical or Future Data (“historical”,“future rcp45”,”future rcp85”)
+(2) Specify Historical or Future Data (“historical”,“future45”,”future85”)
 (3) Zone (pixel id)
 (4) Number of Years of Data you want (default: all available)
 (5) Climate Model (default: GFDL-ESM2M) http://maca.northwestknowledge.net/GCMs.php

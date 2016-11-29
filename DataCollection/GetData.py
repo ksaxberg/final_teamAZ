@@ -59,7 +59,7 @@ if model == 'historical':
         finalYear = 1949 + int(yrs)
         timeEnd = str(finalYear) + '-12-31T00:00:00.000Z'
     time = 'hist'
-if model == 'future rcp45':
+if model == 'future45':
     datasetURI = 'http://cida.usgs.gov/thredds/dodsC/macav2metdata_daily_future'
     dataType = ['tasmax_' + climateModel + '_r1i1p1_rcp45', 'tasmin_' + climateModel +'_r1i1p1_rcp45',
                 'pr_' + climateModel +'_r1i1p1_rcp45','rhsmax_' + climateModel + '_r1i1p1_rcp45',
@@ -71,7 +71,7 @@ if model == 'future rcp45':
         finalYear = 2005 + int(yrs)
         timeEnd = str(finalYear) + '-12-31T00:00:00.000Z'
     time = 'fut'
-if model == 'future rcp85':
+if model == 'future85':
     datasetURI = 'http://cida.usgs.gov/thredds/dodsC/macav2metdata_daily_future'
     dataType = ['tasmax_' + climateModel + '_r1i1p1_rcp85', 'tasmin_' + climateModel +'_r1i1p1_rcp85',
                 'pr_' + climateModel +'_r1i1p1_rcp85','rhsmax_' + climateModel + '_r1i1p1_rcp85',
