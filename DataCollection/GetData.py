@@ -10,7 +10,6 @@ if len(commandlineArgs) < 3 or len(commandlineArgs) > 5:
 
 state = commandlineArgs[0]
 model = commandlineArgs[1]
-zone = commandlineArgs[2]
 climateModel = 'GFDL-ESM2M'
 if len(commandlineArgs) == 4 or len(commandlineArgs) == 5:
     yrs = commandlineArgs[3]
@@ -35,17 +34,7 @@ else:
 Stateshapefile = shpfile
 
 usr_attribute = 'id'
-ids = []  #list of ids/zones
-
-values = pyGDP.getValues(Stateshapefile,usr_attribute)
-for val in values:
-    if val != None:
-        ids.append(val)
-
-if int(zone) < (len(ids) - 1):
-    usr_value = ids[int(zone)]
-else:
-     sys.exit("ERR0R: Invalid zone")
+usr_value = commandlineArgs[2]
 
 if model == 'historical':
     datasetURI = 'http://cida.usgs.gov/thredds/dodsC/macav2metdata_daily_historical'
