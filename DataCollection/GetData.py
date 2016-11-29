@@ -68,10 +68,10 @@ if model == 'f':
     time = 'fut'
 
 print "Gathering Data"
-outputFile_handle = pyGDP.submitFeatureWeightedGridStatistics(Stateshapefile, datasetURI, dataType, timeStart, timeEnd,
+File_handle = pyGDP.submitFeatureWeightedGridStatistics(Stateshapefile, datasetURI, dataType, timeStart, timeEnd,
                                                              usr_attribute, usr_value)
 
-input = outputFile_handle
+input = File_handle
 #output file naming example: STATE_hist_1950_2005_5.csv
 output = state + '_'+ time + '_' + timeStart[0:4] + '_' + timeEnd[0:4] + '_' + zone + '.csv'
 numberOfVariables = 5
