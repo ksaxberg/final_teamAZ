@@ -18,7 +18,7 @@ if len(commandlineArgs) == 4 or len(commandlineArgs) == 5:
 
 pyGDP = pyGDP.pyGDPwebProcessing()  # initialize a pyGDP wps object
 
-filePath = 'StateGrids/state_' + state + 'Grid.zip'  #which shapefile to use
+filePath = '/final_teamAZ/DataCollection/StateGrids/state_' + state + 'Grid.zip'  #which shapefile to use
 
 # upload the file to geoserver
 try:
@@ -26,7 +26,7 @@ try:
 
 except Exception:
     print 'A file of this name already exists, it has not been replaced.'
-    shpfile = 'upload:testUpload'
+    shpfile = 'upload:state_' + state + 'Grid'
 else:
     print 'Shapefile Uploaded'
 
