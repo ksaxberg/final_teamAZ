@@ -6,13 +6,10 @@ RUN sudo apt-get -y install python
 RUN sudo apt-get install -y python python-dev python-distribute python-pip
 RUN pip install --upgrade pip
 RUN apt-get install -y git
-RUN apt-get install -y git python-virtualenv
-ADD https://github.com/ksaxberg/final_teamAZ/tree/master/DataCollection/StateGrids /StateGrids
 RUN pip install owslib
 RUN pip install lxml
 RUN apt-get install -y libxml2
 RUN pip install git+https://github.com/USGS-CIDA/pyGDP.git@v1.3.1#egg=pyGDP
-ADD https://github.com/ksaxberg/final_teamAZ/blob/master/DataCollection/GetData.py GetData.py
-ADD https://github.com/ksaxberg/final_teamAZ/tree/master/DataCollection/IDs /IDs
+RUN git clone https://github.com/ksaxberg/final_teamAZ.git
 
 
