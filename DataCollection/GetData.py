@@ -26,7 +26,6 @@ try:
     shpfile = pyGDP.uploadShapeFile(filePath)
 
 except Exception:
-    print 'A file of this name already exists. Using the ' + state + ' Shapefile'
     shpfile = 'upload:state_' + state + 'Grid'
 else:
     print 'Shapefile Uploaded'
@@ -75,7 +74,6 @@ if model == 'future85':
     time = 'fut85'
 
 print "Gathering Data"
-print "Start Time: " + str(datetime.datetime.now())
 File_handle = pyGDP.submitFeatureWeightedGridStatistics(Stateshapefile, datasetURI, dataType, timeStart, timeEnd,
                                                              usr_attribute, usr_value)
 
@@ -83,7 +81,6 @@ input = File_handle
 output = climateModel + '_' + state + '_'+ time + '_' + timeStart[0:4] + '_' + timeEnd[0:4] + '_' + usr_value + '.csv'
 numberOfVariables = 5
 
-print "Creating CSV"
 with open(input, 'r') as reader:
     data = [x.replace("\n", ",").split(",") for x in reader.readlines()]
 factorToSkipBy = (len(data) / numberOfVariables)
@@ -101,7 +98,7 @@ with open(output, 'w') as csv:
 os.remove(File_handle)
 os.remove('owslib.log')
 
-print "Finished process at:" + str(datetime.datetime.now())
+
 
 
 
