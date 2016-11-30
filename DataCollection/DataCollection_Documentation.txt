@@ -19,7 +19,7 @@ Function and Output:
 	-Naming convention: state_{STATE NAME}Grid.zip
 	-Example: state_ArizonaGrid.zip is the shapefile for the state of Arizona
 	-The grid breaks up the state into approximately 4km x 4km boxes
-	-Each box has an id number associated with it (ids = list of id numbers)
+	-Each box has an id number associated with it (in /StateGrids/IDs)
 -Gets the daily climate data for a single box for the desired number of years
 	-Maximum Near-Surface Air Temperature
 	-Minimum Near-Surface Air Temperature

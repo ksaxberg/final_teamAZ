@@ -6,7 +6,7 @@ import os
 commandlineArgs = sys.argv[1:]
 
 if len(commandlineArgs) < 3 or len(commandlineArgs) > 5:
-    sys.exit("ERROR: Incorrect number of arguments! (state, data type, zone, number of years(optional), and model (optional")
+    sys.exit("ERROR: Incorrect number of arguments! (state, data type, zone, number of years(optional), and model (optional)")
 
 state = commandlineArgs[0]
 model = commandlineArgs[1]
@@ -78,7 +78,7 @@ File_handle = pyGDP.submitFeatureWeightedGridStatistics(Stateshapefile, datasetU
                                                              usr_attribute, usr_value)
 
 input = File_handle
-output = climateModel + '_' + state + '_'+ time + '_' + timeStart[0:4] + '_' + timeEnd[0:4] + '_' + zone + '.csv'
+output = climateModel + '_' + state + '_'+ time + '_' + timeStart[0:4] + '_' + timeEnd[0:4] + '_' + usr_value + '.csv'
 numberOfVariables = 5
 
 print "Creating CSV"
