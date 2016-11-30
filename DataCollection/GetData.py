@@ -75,7 +75,7 @@ if model == 'future85':
     time = 'fut85'
 
 print "Gathering Data"
-print "Start Time: " + datetime.datetime.now()
+print "Start Time: " + str(datetime.datetime.now())
 File_handle = pyGDP.submitFeatureWeightedGridStatistics(Stateshapefile, datasetURI, dataType, timeStart, timeEnd,
                                                              usr_attribute, usr_value)
 
@@ -101,7 +101,7 @@ with open(output, 'w') as csv:
 os.remove(File_handle)
 os.remove('owslib.log')
 
-print "Finished process at:" + datetime.datetime.now()
+print "Finished process at:" + str(datetime.datetime.now())
 
 
 
