@@ -1,6 +1,7 @@
 import pyGDP
 import sys
 import os
+import datetime
 
 #[0] = state [1] = historical, future rcp45, or future rcp85 [2] = zone [3]= # of years (default all) [4] = model (default GFDL-ESM2M)
 commandlineArgs = sys.argv[1:]
@@ -25,7 +26,7 @@ try:
     shpfile = pyGDP.uploadShapeFile(filePath)
 
 except Exception:
-    print 'A file of this name already exists, it has not been replaced.'
+    print 'A file of this name already exists. Using the ' + state + ' Shapefile'
     shpfile = 'upload:state_' + state + 'Grid'
 else:
     print 'Shapefile Uploaded'
@@ -74,6 +75,7 @@ if model == 'future85':
     time = 'fut85'
 
 print "Gathering Data"
+print "Start Time: " + datetime.now()
 File_handle = pyGDP.submitFeatureWeightedGridStatistics(Stateshapefile, datasetURI, dataType, timeStart, timeEnd,
                                                              usr_attribute, usr_value)
 
@@ -98,6 +100,8 @@ with open(output, 'w') as csv:
                              data[i + factorToSkipBy * 4][1]) / 2))))+'\n')
 os.remove(File_handle)
 os.remove('owslib.log')
+
+print "Finished process at:" + datetime.now()
 
 
 
