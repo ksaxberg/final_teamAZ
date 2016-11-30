@@ -2,15 +2,14 @@ import pyGDP
 import sys
 import os
 
-#[0] = state [1] = h or f [2] = zone [3]= # of years (default all) [4] = model
+#[0] = state [1] = historical, future rcp45, or future rcp85 [2] = zone [3]= # of years (default all) [4] = model (default GFDL-ESM2M)
 commandlineArgs = sys.argv[1:]
 
 if len(commandlineArgs) < 3 or len(commandlineArgs) > 5:
-    sys.exit("ERROR: Incorrect number of arguments! (state, data type, zone, number of years(optional), and model (optional")
+    sys.exit("ERROR: Incorrect number of arguments! (state, data type, zone, number of years(optional), and model (optional)")
 
 state = commandlineArgs[0]
 model = commandlineArgs[1]
-zone = commandlineArgs[2]
 climateModel = 'GFDL-ESM2M'
 if len(commandlineArgs) == 4 or len(commandlineArgs) == 5:
     yrs = commandlineArgs[3]
@@ -35,19 +34,9 @@ else:
 Stateshapefile = shpfile
 
 usr_attribute = 'id'
-ids = []  #list of ids/zones
+usr_value = commandlineArgs[2]
 
-values = pyGDP.getValues(Stateshapefile,usr_attribute)
-for val in values:
-    if val != None:
-        ids.append(val)
-
-if int(zone) < (len(ids) - 1):
-    usr_value = ids[int(zone)]
-else:
-     sys.exit("ERR0R: Invalid zone")
-
-if model == 'h':
+if model == 'historical':
     datasetURI = 'http://cida.usgs.gov/thredds/dodsC/macav2metdata_daily_historical'
     dataType = ['tasmax_' + climateModel+ '_r1i1p1_historical', 'tasmin_' + climateModel + '_r1i1p1_historical',
                 'pr_' + climateModel +'_r1i1p1_historical','rhsmax_' + climateModel+ '_r1i1p1_historical',
@@ -59,25 +48,37 @@ if model == 'h':
         finalYear = 1949 + int(yrs)
         timeEnd = str(finalYear) + '-12-31T00:00:00.000Z'
     time = 'hist'
-if model == 'f':
+if model == 'future45':
     datasetURI = 'http://cida.usgs.gov/thredds/dodsC/macav2metdata_daily_future'
-    dataType = ['tasmax_' + climateModel + '_r1i1p1_future', 'tasmin_' + climateModel +'_r1i1p1_future',
-                'pr_' + climateModel +'_r1i1p1_future','rhsmax_' + climateModel + '_r1i1p1_future',
-                'rhsmin_' + climateModel + '_r1i1p1_future']
+    dataType = ['tasmax_' + climateModel + '_r1i1p1_rcp45', 'tasmin_' + climateModel +'_r1i1p1_rcp45',
+                'pr_' + climateModel +'_r1i1p1_rcp45','rhsmax_' + climateModel + '_r1i1p1_rcp45',
+                'rhsmin_' + climateModel + '_r1i1p1_rcp45']
     timeStart = '2006-01-01T00:00:00.000Z'
     if len(commandlineArgs) == 3:
         timeEnd = '2099-12-31T00:00:00.000Z'
     if len(commandlineArgs) == 4:
         finalYear = 2005 + int(yrs)
         timeEnd = str(finalYear) + '-12-31T00:00:00.000Z'
-    time = 'fut'
+    time = 'fut45'
+if model == 'future85':
+    datasetURI = 'http://cida.usgs.gov/thredds/dodsC/macav2metdata_daily_future'
+    dataType = ['tasmax_' + climateModel + '_r1i1p1_rcp85', 'tasmin_' + climateModel +'_r1i1p1_rcp85',
+                'pr_' + climateModel +'_r1i1p1_rcp85','rhsmax_' + climateModel + '_r1i1p1_rcp85',
+                'rhsmin_' + climateModel + '_r1i1p1_rcp85']
+    timeStart = '2006-01-01T00:00:00.000Z'
+    if len(commandlineArgs) == 3:
+        timeEnd = '2099-12-31T00:00:00.000Z'
+    if len(commandlineArgs) == 4:
+        finalYear = 2005 + int(yrs)
+        timeEnd = str(finalYear) + '-12-31T00:00:00.000Z'
+    time = 'fut85'
 
 print "Gathering Data"
 File_handle = pyGDP.submitFeatureWeightedGridStatistics(Stateshapefile, datasetURI, dataType, timeStart, timeEnd,
                                                              usr_attribute, usr_value)
 
 input = File_handle
-output = climateModel + '_' + state + '_'+ time + '_' + timeStart[0:4] + '_' + timeEnd[0:4] + '_' + zone + '.csv'
+output = climateModel + '_' + state + '_'+ time + '_' + timeStart[0:4] + '_' + timeEnd[0:4] + '_' + usr_value + '.csv'
 numberOfVariables = 5
 
 print "Creating CSV"
