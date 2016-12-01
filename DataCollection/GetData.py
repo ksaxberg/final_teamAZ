@@ -10,7 +10,7 @@ latitude = float(arguments[1])
 longitude = float(arguments[2])
 
 
-outputFile = dataType + '_' + str(latitude) + '_' + str(longitude) + '.csv'
+outputFile = "RAW_" + dataType + '_' + str(latitude) + '_' + str(longitude) + '.csv'
 day = 1  #start day
 
 #Set lat/lon pairs according to north and east reference frame
@@ -60,7 +60,7 @@ for var, idx in VAR_PATHS.items():
 
     # extract data
     time_length = len(timeh)  # get the number of records
-    time_index = range(day - 1, time_length, 2000)  # step through the values one day at a time
+    time_index = range(day - 1, time_length, 1)  # step through the values one day at a time
     time = timeh[time_index]
     lat = lath[:]
     lon = lonh[:]

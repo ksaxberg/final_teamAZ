@@ -30,5 +30,7 @@ This python program takes the output of GetData.py and formats the csv to be sui
 Dependencies:
 -python 2.7
 
+Arguments:
+(1) Input File (output of GetData.py)
 
 
