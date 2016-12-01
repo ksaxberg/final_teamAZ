@@ -3,6 +3,11 @@ GetData.py
 Overview:
 This python program gathers downscaled (MACA) climate model data using OPeNDAP and creates a csv of the data for the specified pixel. It can download historical data (01/01/1950 - 12/31/2005) or future prediction data (01/01/2006 - 12/31/2099). The future prediction data can predict data for different scenarios or Representative Concentration Pathways (RCPs). An rcp4.5 is a moderate scenario while an rcp8.5 is a worse-case scenario. See http://sedac.ipcc-data.org/ddc/ar5_scenario_process/RCPs.html for more details.
 
+Data Sources:
+http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav1metdata_{}_GFDL-ESM2M_r1i1p1_rcp45_2006_2100_WUSA.nc
+http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav1metdata_{}_GFDL-ESM2M_r1i1p1_rcp85_2006_2100_WUSA.nc
+http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav1metdata_{}_GFDL-ESM2M_r1i1p1_historical_1950_2005_WUSA.nc
+
 Dependencies:
 -python 2.7
 -netCDF4 (python package)
