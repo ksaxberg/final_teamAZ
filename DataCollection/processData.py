@@ -1,6 +1,14 @@
 import sys
 
-inputFile = sys.argv[1]
+inputFile = sys.argv[1:]
+
+if inputFile[0] == 'h' or '-help' or '--help':
+    print "ProcessData.py takes 1 argument--"
+    print "A CSV file with the following fields: "
+    sys.exit()
+
+outputFile = inputFile[0][4:]
+print outputFile
 
 with open(inputFile,'r') as input:
     lines = input.readlines()
@@ -9,7 +17,7 @@ rows = []
 for line in lines:
     rows.append(line.split(','))
 
-with open('pData.csv','w') as output:
+with open(outputFile,'w') as output:
     output.write("Year,Month,Day,Tmax,Tmin,Prcp(mm),T_ave,Prcp(cm),Rh_ave\n")
     if 'historical' in inputFile:
         yr = 1950
