@@ -8,7 +8,6 @@ if inputFile[0] == 'h' or '-help' or '--help':
     sys.exit()
 
 outputFile = inputFile[0][4:]
-print outputFile
 
 with open(inputFile,'r') as input:
     lines = input.readlines()
