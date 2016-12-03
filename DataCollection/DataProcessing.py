@@ -1,4 +1,7 @@
+"""Takes the output of Data Collection and formats it into a csv for running in the MoLS """
+
 import sys
+import os
 
 arguments = sys.argv[1:]
 
@@ -23,9 +26,6 @@ rows = []
 for line in lines:
     rows.append(line.split(','))
 
-# print rows[15]
-# print rows[16]
-
 with open(outputFile,'w') as output:
     output.write("Year,Month,Day,Tmax,Tmin,Prcp(mm),T_ave,Prcp(cm),Rh_ave\n")
     ln = 0
@@ -43,4 +43,6 @@ with open(outputFile,'w') as output:
             output.write(yr +"," + mon + "," + day + "," + tmax + "," + tmin + "," + prcpMM + "," + tave + "," + prcpCM + "," +rhave +"\n")
         elif ln < 16:
             ln += 1
+
+os.remove(inputFile)
 
