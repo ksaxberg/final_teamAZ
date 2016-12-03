@@ -5,6 +5,13 @@ import sys
 
 #ARGUMENTS: data type, lat, lon
 arguments = sys.argv[1:]
+
+if arguments[0] == '-h' or '-help' or '--help':
+    print "GetData.py takes 3 arguments:"
+    print "(1) data type ('historical','rcp45', or 'rcp85')"
+    print "(2) latitude"
+    print "(3) longitude"
+
 dataType = arguments[0] #historical, rcp45, rcp85
 latitude = float(arguments[1])
 longitude = float(arguments[2])
@@ -23,6 +30,7 @@ if longitude < 0:
     lon_target = 360 + longitude
 else:
     lon_target = longitude
+
 
 #Based on data type, give the OPeNAP Dataset url
 if dataType == 'historical':
