@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 
 arguments = sys.argv[1:]
 
@@ -50,3 +51,5 @@ os.system(Request)
 os.system("python DataProcessing.py RAW_historical_" + lat +"_" + lon +".csv historical_" + lat +"_" + lon +".csv")
 os.system("python DataProcessing.py RAW_rcp45_" + lat +"_" + lon +".csv rcp45_" + lat +"_" + lon +".csv")
 os.system("python DataProcessing.py RAW_rcp85_" + lat +"_" + lon +".csv rcp85_" + lat +"_" + lon +".csv")
+
+time.sleep(120)
