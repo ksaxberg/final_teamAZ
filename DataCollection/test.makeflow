@@ -1,0 +1,6 @@
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 36.99 -113.63
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 36.99 -112.99
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 36.95 -112.99
