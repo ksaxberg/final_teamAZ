@@ -1,0 +1,66 @@
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 35.15 -111.71
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 35.11 -114.63
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 35.11 -114.59
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 35.11 -112.43
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 35.11 -111.03
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 35.07 -114.59
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 35.03 -114.59
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 35.03 -110.71
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.99 -114.59
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.99 -109.99
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.95 -111.63
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.91 -114.59
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.91 -110.23
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.87 -114.55
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.87 -114.15
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.87 -114.11
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.87 -112.47
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.87 -111.83
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.87 -111.79
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.87 -111.63
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.83 -114.59
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.83 -113.63
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.79 -114.47
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.79 -112.51
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.79 -111.75
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.79 -111.59
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.75 -112.43
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.75 -112.11
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.75 -112.03
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.71 -114.31
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.71 -111.39
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.67 -110.15
+: MakeRequests.py DataProcessing.py
+	python MakeRequests.py 34.63 -112.43
