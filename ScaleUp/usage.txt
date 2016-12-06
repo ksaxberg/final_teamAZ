@@ -1,0 +1,14 @@
+----- Still Testing something ------
+Can makeflow handle relative addressing?
+What happens to that thing through this.
+Assuming it will work well.
+------------------------------------
+
+To run this whole thing, pass in the folder containing csvs as a command line input to makeMakeflow.py:
+
+python makeMakeflow.py folder/of/interest
+
+Then from this folder, it should be as simple as running the makeflow command
+
+=====No idea what it will be in its final form
+makeflow Makeflow.makeflow
