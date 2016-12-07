@@ -15,3 +15,4 @@ with open(mfFile,'w') as output:
             lon = str(float(point[1]))
             output.write(": MakeRequests.py DataProcessing.py\n")
             output.write("\tpython MakeRequests.py " + lat + " " + lon +"\n")
+
