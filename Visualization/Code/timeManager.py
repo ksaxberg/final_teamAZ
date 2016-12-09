@@ -1,30 +1,15 @@
-import os
+path = "/Users/danielkapellusch/Documents/ACIC2016/Final/TESTrcp45Data.csv"
 
-datasources = "/Users/danielkapellusch/Documents/ACIC2016/Final/rcp45Data/"
-#"/Users/danielkapellusch/Documents/ACIC2016/Final/rcp85Data"
+with open(path,'r') as input:
+    lines = input.readlines()
 
-files = os.listdir(datasources)
-newFile = '/Users/danielkapellusch/Documents/ACIC2016/Final/TESTrcp45Data.csv'
+rows = []
+for line in lines:
+    rows.append(line.split(','))
 
-with open(newFile,'w') as csv:
-    for f in files:
-        with open(datasources+f,'r') as data:
-            lines = data.readlines()
-        lat = f[6:11]
-        lon = f[12:19]
-        csv.write("Lat,Lon,Time,Tmax,Tmin,Prcp(mm),T_ave,Prcp(cm),Rh_ave,Abundance\n")
-        rows = []
-        for line in lines:
-            rows.append(line.split(','))
-
-        #ORIGINAL HEADERS: Year,Month,Day,Tmax,Tmin,Prcp(mm),T_ave,Prcp(cm),Rh_ave
-        for row in rows:
-            if row != rows[0]:
-                year = row[0]
-                month = row[1]
-                day = row[2]
-                #TAKE OUT ABUNDANCE FOR REAL THING
-                # csv.write(lat +","+lon+","+year+"-"+month+"-"+day+","+row[3]+","+row[4]+","+row[5]+","+row[6]+","+row[7]+
-                #           ","+str(float(row[8]))+",0\n")
-                csv.write(lat +","+lon+","+row[0]+"-"+row[1]+"-"+row[2]+","+row[3]+","+row[4]+","+row[5]+","+row[6]+","+row[7]+
-                          ","+str(float(row[8]))+",0\n")
+with open("/Users/danielkapellusch/Documents/ACIC2016/Final/ProcessedTest.csv",'w') as output:
+    for row in rows:
+        year = row[2]
+        month = row[3]
+        day = row[4]
+        output.write(row[0] + "," + row[1] +","+year+"-"+month+"-"+day+","+row[5]+","+row[6]+","+row[7]+","+row[8]+","+row[9]+","+row[10]+","+row[11]+"\n" )

@@ -4,7 +4,7 @@ def GetSingleColumnMonthlyAvg(columnName):
     currentYearMonth = None
     pointsToAvg = []
 
-    with open("MonthlyMosq.csv", "w") as writer:
+    with open("MonthlyTemp.csv", "w") as writer:
         writer.write("Lat,Lon,Time,"+columnName+"\n")
 
         with open("/Users/danielkapellusch/Desktop/TESTrcp45Data.csv", "r") as reader:
@@ -27,4 +27,4 @@ def GetSingleColumnMonthlyAvg(columnName):
                                                      sum(map(float, pointsToAvg)) / len(pointsToAvg)))
 
 
-GetSingleColumnMonthlyAvg("Abundance")
+GetSingleColumnMonthlyAvg("T_ave")
