@@ -1,6 +1,7 @@
 from MoLS import Run_Model
 import sys
 import logging
+import os
 
 if __name__=="__main__":
     logging.debug('Running Model')

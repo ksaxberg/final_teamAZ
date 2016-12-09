@@ -1,0 +1,6 @@
+exampl1.csv.out->weather1.csv: exampl1.csv->weather.csv Get_MoLS.sh Run_Model.py
+    bash ./Get_MoLS.sh ; python Run_Model.py weather; cp weather.csv weather1.csv
+
+exampl2.csv.out->weather1.csv: exampl2.csv->weather.csv Get_MoLS.sh Run_Model.py
+    bash ./Get_MoLS.sh ; python Run_Model.py weather; cp weather.csv weather1.csv
+
