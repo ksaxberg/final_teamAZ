@@ -1,0 +1,9 @@
+MASKING and DATA COLLECTION
+____________________________
+
+(1) Download the National Landcover Database 2011 Database
+(2) Warp the coordinate system
+(3) Run maskData.py to get the coordinates of the state of interest (using coordinates from IDs/) with the land use of interest
+(4) Run createMakeflow.py if you want to distribute the collection of data with Makeflow (http://ccl.cse.nd.edu/software/makeflow/)
+(5) Makeflow will execute MakeRequests.py and DataProcessing.py to download the climate data and format it into CSVs
+(6) Run mergeCSVs.py to concatenate historical and future climate data

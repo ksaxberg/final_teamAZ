@@ -18,6 +18,22 @@ if len(arguments) != 2:
 lat = arguments[0]
 lon = arguments[1]
 
+def check(type,csv, request,status):
+    trys = status
+    with open(csv,'r') as inputFile:
+        first_line = inputFile.readline()
+    if trys > 4:
+        print 'Download failed too many times'
+    if first_line != '#Variables:\n' and trys < 4:
+        print first_line
+        print 'DOWNLOAD FAILED. Re-executing download'
+        os.system(request)
+        trys += 1
+        check(type,csv,request,trys)
+    if first_line == '#Variables:\n':
+        os.system("python DataProcessing.py RAW_"+type +"_" + lat + "_" + lon + ".csv "+type+"_" + lat + "_" + lon + ".csv")
+
+#Get Future Data
 dataTypes = ["rcp45","rcp85"]
 for dataType in dataTypes:
     baseRequest ="curl -o RAW_" + dataType + "_" + lat +"_" +lon+ ".csv 'http://climate-dev.nkn.uidaho.edu/Services/get-netcdf-data/?download-csv=True&" \
@@ -33,7 +49,9 @@ for dataType in dataTypes:
                  ".northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_pr_GFDL-ESM2M_r1i1p1_" + dataType +"_2006_2099_CONUS" \
                  "_daily.nc&variable=precipitation&variable-name=pr_GFDL-ESM2M_" + dataType + "'"
     os.system(baseRequest)
+    check(dataType,('RAW_'+dataType+'_'+lat+'_'+lon+'.csv'),baseRequest,1)
 
+#Get Historical Data
 Request ="curl -o RAW_historical_" + lat +"_" +lon+ ".csv 'http://climate-dev.nkn.uidaho.edu/Services/get-netcdf-data/?download-csv=True&" \
          "request_lat_lon=False&lat=" + lat + "&lon=" + lon + "&positive-east-longitude=True&data-path=http://thredds." \
          "northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_tasmin_GFDL-ESM2M_r1i1p1_historical_1950_2005_CONUS" \
@@ -47,7 +65,4 @@ Request ="curl -o RAW_historical_" + lat +"_" +lon+ ".csv 'http://climate-dev.nk
          ".northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_pr_GFDL-ESM2M_r1i1p1_historical_1950_2005_CONUS" \
          "_daily.nc&variable=precipitation&variable-name=pr_GFDL-ESM2M_historical'"
 os.system(Request)
-
-os.system("python DataProcessing.py RAW_historical_" + lat +"_" + lon +".csv historical_" + lat +"_" + lon +".csv")
-os.system("python DataProcessing.py RAW_rcp45_" + lat +"_" + lon +".csv rcp45_" + lat +"_" + lon +".csv")
-os.system("python DataProcessing.py RAW_rcp85_" + lat +"_" + lon +".csv rcp85_" + lat +"_" + lon +".csv")
+check('historical','RAW_historical_'+lat+'_'+lon+'.csv',Request,1)
