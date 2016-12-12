@@ -1,7 +1,7 @@
 MASKING and DATA COLLECTION
 ___________________________________________________________________________________________________________________________________
 ___________________________________________________________________________________________________________________________________
-(1) Download the National Landcover Database 2011 Database
+(1) Download the National Landcover Database 2011 Data
 (2) Warp the coordinate system
 (3) Run maskData.py to get the coordinates of the state of interest (using coordinates from IDs/) with the land use of interest
 (4) Run createMakeflow.py if you want to distribute the collection of data with Makeflow (http://ccl.cse.nd.edu/software/makeflow/)
