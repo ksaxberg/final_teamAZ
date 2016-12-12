@@ -45,4 +45,3 @@ with open(outputFile,'w') as output:
             ln += 1
 
 os.remove(inputFile)
-

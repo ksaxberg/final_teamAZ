@@ -1,6 +1,8 @@
+"""This generates urls to download climate data from the specified lat/lon coordinate and curls the
+data at the address."""
+
 import os
 import sys
-import time
 
 arguments = sys.argv[1:]
 
