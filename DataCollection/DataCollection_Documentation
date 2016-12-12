@@ -35,6 +35,7 @@ Dependencies:
 Arguments:
 (1) Latitude coordinate
 (2) Longitude coordinate
+(3) Model (default = GFDL-ESM2M) *optional*
 Function/Output:
 -Generates urls for the three CSVs to download for the specified lat/lon pair
 -Curls the data at the address
@@ -50,6 +51,7 @@ Arguments:
 (2) Path to output CSV (formatted for MoLS)
 Function/Output:
 -Takes the CSV downloaded from the NKN and formats it for the run through the MoLS
+
 
 mergeCSVs.py
 ___________________________
@@ -86,8 +88,12 @@ Function/Output:
 VizFormat.py
 ___________________________
 Dependencies:
+-Python 2.7
 Arguments:
+(1)Path to directory with all the data output of the MoLS for a single scenario
+(2)Path to the output CSV
 Function/Output:
+-Concatenates all data from the MoLS into a single CSV for visualization
 
 
 MonthlyAvg.py
