@@ -6,7 +6,8 @@ import sys
 
 args = sys.argv[1:]
 scenario = args[0]
-errors = "erros.txt"
+path = args[1]     #EXAMPLE 'filteredFloridaCoords.csv'
+errors = "errors.txt"
 if args[0] == '-h':
     print 'mergeCSVS.py takes one argument:'
     print 'SCENARIO (rcp45 or rcp85)'
@@ -15,7 +16,7 @@ if args[0] == '-h':
 
 
 def combine_data(scen):
-    with open('filteredFloridaCoords.csv','r') as coords:
+    with open(path,'r') as coords:
         lines = coords.readlines()
     coordinates = []
     for line in lines:

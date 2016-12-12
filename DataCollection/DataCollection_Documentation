@@ -57,6 +57,7 @@ Dependencies:
 -Python 2.7
 Arguments:
 (1) Scenario ('rcp45' or 'rcp85')
+(2) Path to list of filtered coordinates (output of maskData.py)
 Function/Output:
 -Concatenates the historical and future CSVs (scenario specified)
 
