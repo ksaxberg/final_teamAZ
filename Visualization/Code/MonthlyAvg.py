@@ -4,10 +4,10 @@ import sys
 
 args = sys.argv[1:]
 
-inputPath = sys[0]   #EXAMPLE: rcp45_Arizona.csv
-outputPath = sys[1]  #EXAMPLE: MonthlyTemp.csv
+inputPath = args[0]   #EXAMPLE: rcp45_Arizona.csv
+outputPath = args[1]  #EXAMPLE: MonthlyTemp.csv
 if len(args) == 2:
-    variable = 'Abundance'
+    variable = 'Abundance\n'
 elif len(args) == 3:
     variable = args[2]
 
@@ -18,7 +18,7 @@ def GetSingleColumnMonthlyAvg(columnName):
     pointsToAvg = []
 
     with open(outputPath, "w") as writer:
-        writer.write("Lat,Lon,Time,"+columnName+"\n")
+        writer.write("Lat,Lon,Time,"+columnName)
 
         with open(inputPath, "r") as reader:
             for line in enumerate(reader.readlines()):
@@ -27,7 +27,8 @@ def GetSingleColumnMonthlyAvg(columnName):
                     columnIndex = data.index(columnName)
                     continue
 
-                yearMonth = data[2][:-3]
+                time = data[2].split('-')
+                yearMonth = time[0] + '-'+time[1]
                 if yearMonth != currentYearMonth:
                     if (len(pointsToAvg) > 0):
                         writer.write("{0},{1},{2}-01,{3}\n".format(data[0], data[1], currentYearMonth,
