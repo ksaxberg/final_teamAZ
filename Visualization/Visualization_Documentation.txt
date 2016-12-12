@@ -1,0 +1,33 @@
+VISUALIZATION
+___________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________
+(1) Take the point CSVs outputted by the MoLS and format them into a single CSV using VizFormat.py
+(2) Load Data into PostGIS and create map layers using a GIS tool such as QGIS or ArcGIS
+
+AND/OR
+
+(2) Execute MonthlyAvg.py to get monthly averages of a single variable
+(3) Create a video of this variable using the QGIS Desktop TimeManager Plugin (https://plugins.qgis.org/plugins/timemanager/)
+
+
+VizFormat.py
+___________________________
+Dependencies:
+-Python 2.7
+Arguments:
+(1)Path to directory with all the data output of the MoLS for a single scenario
+(2)Path to the output CSV
+Function/Output:
+-Concatenates all data from the MoLS into a single CSV for visualization
+
+
+MonthlyAvg.py
+___________________________
+Dependencies:
+-Python 2.7
+Arguments:
+(1) Path to CSV from output of VizFormat.py
+(2) Path to output CSV
+(3) Variable of interest (default = abundance)
+Function/Output:
+-Creates a CSV with monthly averages of the desired variable for all 150 years and every filtered coordinate in the state

@@ -83,26 +83,3 @@ ___________________________
 Dependencies:
 Arguments:
 Function/Output:
-
-
-VizFormat.py
-___________________________
-Dependencies:
--Python 2.7
-Arguments:
-(1)Path to directory with all the data output of the MoLS for a single scenario
-(2)Path to the output CSV
-Function/Output:
--Concatenates all data from the MoLS into a single CSV for visualization
-
-
-MonthlyAvg.py
-___________________________
-Dependencies:
--Python 2.7
-Arguments:
-(1) Path to CSV from output of VizFormat.py
-(2) Path to output CSV
-(3) Variable of interest (default = abundance)
-Function/Output:
--Creates a CSV with monthly averages of the desired variable for all 150 years and every filtered coordinate in the state
