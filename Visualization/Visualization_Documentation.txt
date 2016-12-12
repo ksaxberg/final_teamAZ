@@ -19,6 +19,7 @@ Arguments:
 (2)Path to the output CSV
 Function/Output:
 -Concatenates all data from the MoLS into a single CSV for visualization
+-If any files were found to not be run through the MoLS correctly, their names are written to an error log file: ‘errors_Viz.txt’
 
 
 MonthlyAvg.py
