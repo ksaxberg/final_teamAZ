@@ -1,9 +1,98 @@
 MASKING and DATA COLLECTION
-____________________________
-
+___________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________
 (1) Download the National Landcover Database 2011 Database
 (2) Warp the coordinate system
 (3) Run maskData.py to get the coordinates of the state of interest (using coordinates from IDs/) with the land use of interest
 (4) Run createMakeflow.py if you want to distribute the collection of data with Makeflow (http://ccl.cse.nd.edu/software/makeflow/)
 (5) Makeflow will execute MakeRequests.py and DataProcessing.py to download the climate data and format it into CSVs
 (6) Run mergeCSVs.py to concatenate historical and future climate data
+
+
+maskData.py
+__________________________
+Dependencies:
+Arguments:
+Function/Output:
+
+
+createMakeflow.py
+___________________________
+Dependencies: 
+-Python 2.7
+Arguments:
+(1) Path to CSV with lat/lon coordinates (output from maskData.py)
+(2) Path to output Makeflow file
+Function/Output:
+-Generates makeflow file to download climate data CSVs
+
+
+MakeRequests.py
+___________________________
+Dependencies:
+-Python 2.7
+Arguments:
+(1) Latitude coordinate
+(2) Longitude coordinate
+Function/Output:
+-Generates urls for the three CSVs to download for the specified lat/lon pair
+-Curls the data at the address
+-If the download fails due to a server error, it will try to download the data again
+
+
+DataProcessing.py
+___________________________
+Dependencies:
+-Python 2.7
+Arguments:
+(1) Path to input CSV file (output of MakeRequests.py)
+(2) Path to output CSV (formatted for MoLS)
+Function/Output:
+-Takes the CSV downloaded from the NKN and formats it for the run through the MoLS
+
+mergeCSVs.py
+___________________________
+Dependencies:
+-Python 2.7
+Arguments:
+(1) Scenario ('rcp45' or 'rcp85')
+Function/Output:
+-Concatenates the historical and future CSVs (scenario specified)
+
+
+makeMakeflow.py
+___________________________
+Dependencies:
+Arguments:
+Function/Output:
+
+
+Get_MoLS.sh
+___________________________
+Dependencies:
+Arguments:
+Function/Output:
+
+
+Run_Model.py
+___________________________
+Dependencies:
+Arguments:
+Function/Output:
+
+
+VizFormat.py
+___________________________
+Dependencies:
+Arguments:
+Function/Output:
+
+
+MonthlyAvg.py
+___________________________
+Dependencies:
+-Python 2.7
+Arguments:
+(1) Path to CSV from output of VizFormat.py
+Function/Output:
+-Creates a CSV with monthly averages of mosquito abundance

@@ -1,3 +1,5 @@
+"""Takes the CSV output from VizFormat.py and generates a new CSV with monthly mosquito abundance"""
+
 def GetSingleColumnMonthlyAvg(columnName):
 
     columnIndex = None
@@ -27,4 +29,4 @@ def GetSingleColumnMonthlyAvg(columnName):
                                                      sum(map(float, pointsToAvg)) / len(pointsToAvg)))
 
 
-GetSingleColumnMonthlyAvg("T_ave")
+GetSingleColumnMonthlyAvg("Abundance")

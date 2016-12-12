@@ -1,12 +1,13 @@
 """mergeCSVs.py takes the csv outputs from DataProcessing and
-concatenates the historical and future data into a single CSV for each lat/lon point"""
+concatenates the historical and future data into a single CSV for each lat/lon point.
+If you are missing any lat/lon point, this will be written to a file called errors.txt"""
 
 import os
 import sys
 
 args = sys.argv[1:]
 scenario = args[0]
-errors = "erros.txt"
+errors = "errors.txt"
 if args[0] == '-h':
     print 'mergeCSVS.py takes one argument:'
     print 'SCENARIO (rcp45 or rcp85)'
