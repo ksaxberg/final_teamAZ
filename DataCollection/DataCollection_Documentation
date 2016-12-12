@@ -50,5 +50,6 @@ Arguments:
 (2) Path to output CSV (formatted for MoLS)
 Function/Output:
 -Takes the CSV downloaded from the NKN and formats it for the run through the MoLS
+-Output = CSV with the following columns: (1)Year (2)Month (3)Day (4)Maximum Temperature (5)Minimum Temperature (6)Precipitation in mm (7)Average Temperature (8)Precipitation in cm (9)Relative Humidity
 
 

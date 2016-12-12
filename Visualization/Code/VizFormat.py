@@ -14,14 +14,12 @@ with open(outputFile,'w') as outF:
 
     for f in files:
         if f != '.DS_Store':
-            print f
             fName = f.split('_')
 
             lat = fName[1]
             lonIndex = (fName[2]).index('.c')
             lon =fName[2][:lonIndex]
-            print lat
-            print lon
+
             with open(pathToData+f,'r') as inF:
                 lines = inF.readlines()
             rows = []

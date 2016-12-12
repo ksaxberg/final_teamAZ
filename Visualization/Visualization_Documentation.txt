@@ -20,6 +20,7 @@ Arguments:
 Function/Output:
 -Concatenates all data from the MoLS into a single CSV for visualization
 -If any files were found to not be run through the MoLS correctly, their names are written to an error log file: ‘errors_Viz.txt’
+-Output = CSV with the following columns: (1)Latitude (2)Longitude (3)Time [%Y-%m-%d] (4)Maximum Temperature (5)Minimum Temperature (6)Precipitation in mm (7)Average Temperature (8)Precipitation in cm (9)Relative Humidity (10)Abundance
 
 
 MonthlyAvg.py
@@ -32,3 +33,4 @@ Arguments:
 (3) Variable of interest (default = abundance)
 Function/Output:
 -Creates a CSV with monthly averages of the desired variable for all 150 years and every filtered coordinate in the state
+-Output = CSV with the following columns: (1)Latitude (2)Longitude (3)Time [%Y-%m-01] (4){VARIABLE OF INTEREST}
