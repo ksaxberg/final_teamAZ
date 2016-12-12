@@ -7,7 +7,6 @@ ________________________________________________________________________________
 (4) Execute maskData.py to get the coordinates with the land use of interest
 (5) Run createMakeflow.py if you want to distribute the collection of data with Makeflow (http://ccl.cse.nd.edu/software/makeflow/)
 (6) Makeflow will execute MakeRequests.py and DataProcessing.py to download the climate data and format it into CSVs
-(7) Run mergeCSVs.py to concatenate historical and future climate data
 
 
 maskData.py
@@ -53,33 +52,3 @@ Function/Output:
 -Takes the CSV downloaded from the NKN and formats it for the run through the MoLS
 
 
-mergeCSVs.py
-___________________________
-Dependencies:
--Python 2.7
-Arguments:
-(1) Scenario ('rcp45' or 'rcp85')
-(2) Path to list of filtered coordinates (output of maskData.py)
-Function/Output:
--Concatenates the historical and future CSVs (scenario specified)
-
-
-makeMakeflow.py
-___________________________
-Dependencies:
-Arguments:
-Function/Output:
-
-
-Get_MoLS.sh
-___________________________
-Dependencies:
-Arguments:
-Function/Output:
-
-
-Run_Model.py
-___________________________
-Dependencies:
-Arguments:
-Function/Output:
