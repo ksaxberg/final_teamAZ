@@ -20,20 +20,23 @@ if len(arguments) != 2:
 lat = arguments[0]
 lon = arguments[1]
 
-def check(type,csv, request,status):
+#Checks to make sure what was downloaded was the climate CSV
+def check(type,csv, request,status=1):
     trys = status
     with open(csv,'r') as inputFile:
         first_line = inputFile.readline()
     if trys > 4:
         print 'Download failed too many times'
-    if first_line != '#Variables:\n' and trys < 4:
-        print first_line
+        return None
+    elif first_line != '#Variables:\r\n' and trys < 4:
         print 'DOWNLOAD FAILED. Re-executing download'
         os.system(request)
         trys += 1
         check(type,csv,request,trys)
-    if first_line == '#Variables:\n':
+    else:
         os.system("python DataProcessing.py RAW_"+type +"_" + lat + "_" + lon + ".csv "+type+"_" + lat + "_" + lon + ".csv")
+
+
 
 #Get Future Data
 dataTypes = ["rcp45","rcp85"]
@@ -51,7 +54,7 @@ for dataType in dataTypes:
                  ".northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_pr_GFDL-ESM2M_r1i1p1_" + dataType +"_2006_2099_CONUS" \
                  "_daily.nc&variable=precipitation&variable-name=pr_GFDL-ESM2M_" + dataType + "'"
     os.system(baseRequest)
-    check(dataType,('RAW_'+dataType+'_'+lat+'_'+lon+'.csv'),baseRequest,1)
+    check(dataType,('RAW_'+dataType+'_'+lat+'_'+lon+'.csv'),baseRequest)
 
 #Get Historical Data
 Request ="curl -o RAW_historical_" + lat +"_" +lon+ ".csv 'http://climate-dev.nkn.uidaho.edu/Services/get-netcdf-data/?download-csv=True&" \
@@ -67,4 +70,4 @@ Request ="curl -o RAW_historical_" + lat +"_" +lon+ ".csv 'http://climate-dev.nk
          ".northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_pr_GFDL-ESM2M_r1i1p1_historical_1950_2005_CONUS" \
          "_daily.nc&variable=precipitation&variable-name=pr_GFDL-ESM2M_historical'"
 os.system(Request)
-check('historical','RAW_historical_'+lat+'_'+lon+'.csv',Request,1)
+check('historical','RAW_historical_'+lat+'_'+lon+'.csv',Request)
