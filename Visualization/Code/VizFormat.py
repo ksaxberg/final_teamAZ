@@ -1,7 +1,10 @@
 import os
+import sys
 
-pathToData = '/Users/danielkapellusch/Desktop/ArizonaData/'
-outputFile = pathToData + "rcp45_Arizona.csv"
+args = sys.argv[1:]
+
+pathToData = args[0]  #Path to directory with all the data for one scenario
+outputFile = args[1]  #Path to where you want the output CSV to be
 
 files = os.listdir(pathToData)
 
