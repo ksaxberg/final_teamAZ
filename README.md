@@ -6,13 +6,9 @@ Final project for Team DEET
 This project aimed to predict mosquito abundance using future climate predictions and visualize mosquito 
 populations from 1950 to 2099.
 
-There are three components of the project: Data Collection, Data Analysis, and Data Visualization. 
+[Historical (1950 - 2005) and future prediction (2006 - 2099) data](http://climate.nkn.uidaho.edu/MACA/data_csv.php) for each 'developed' latitude and longitude coordinate in Arizona was collected and run through a [mosquito abundance model](https://github.com/JocelineLega/MoLS) to predict daily mosquito numbers based on near-surface air temperature, precipitation, and surface relative humidity.
 
-A grid of 4km x 4km was overlaid on the state of interest and daily climate data for pixels that were considered developed by the The National Land Cover Database 2011 was collected from the Northwest Knowledge Network Multivariate Adaptive Constructed Analog (MACA) Method data (https://www.northwestknowledge.net/data-search).
-
-Climate data for each latitude and longitude coordinate was run through a mosquito abundance model (https://github.com/JocelineLega/MoLS) to predict daily mosquito numbers based on near-surface air temperature, precipitation, and surface relative humidity.
-
-Monthly average mosquito abundance was visualized using QGIS(http://qgis.org/en/site/) time manager plugin.
+Monthly average mosquito abundance was visualized using the [QGIS time manager plugin](https://plugins.qgis.org/plugins/timemanager/).
 
 For more information about the code and more detailed instructions for setup and running, see [the project wiki](https://github.com/ksaxberg/final_teamAZ/wiki).
 
