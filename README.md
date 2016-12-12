@@ -11,5 +11,3 @@ populations from 1950 to 2099.
 Monthly average mosquito abundance was visualized using the [QGIS time manager plugin](https://plugins.qgis.org/plugins/timemanager/).
 
 For more information about the code and more detailed instructions for setup and running, see [the project wiki](https://github.com/ksaxberg/final_teamAZ/wiki).
-
-![alt tag] (https://github.com/ksaxberg/final_teamAZ/blob/master/DEET_Workflow.png)
