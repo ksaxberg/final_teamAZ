@@ -28,7 +28,11 @@ def GetSingleColumnMonthlyAvg(columnName):
                     continue
 
                 time = data[2].split('-')
-                yearMonth = time[0] + '-'+time[1]
+                if int(time[1]) < 10:
+                    mon = '0'+time[1]
+                if int(time[1]) >= 10:
+                    mon = time[1]
+                yearMonth = time[0] + '-'+mon
                 if yearMonth != currentYearMonth:
                     if (len(pointsToAvg) > 0):
                         writer.write("{0},{1},{2}-01,{3}\n".format(data[0], data[1], currentYearMonth,
