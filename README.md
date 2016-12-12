@@ -14,4 +14,6 @@ Climate data for each latitude and longitude coordinate was run through a mosqui
 
 Monthly average mosquito abundance was visualized using QGIS(http://qgis.org/en/site/) time manager plugin.
 
+For more information about the code and more detailed instructions for setup and running, see the documentation files in each project component directory and/or the wiki.
+
 ![alt tag] (https://github.com/ksaxberg/final_teamAZ/blob/master/DEET_Workflow.png)
