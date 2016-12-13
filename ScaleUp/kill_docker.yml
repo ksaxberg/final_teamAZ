@@ -1,0 +1,8 @@
+- hosts: all
+  remote_user: cc
+  
+  tasks:
+
+  - name: Sending stop command to all docker containers within each host.
+    shell: docker stop $(docker ps -a -q)
+    become_user: cc

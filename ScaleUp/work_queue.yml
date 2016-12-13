@@ -1,0 +1,10 @@
+- hosts: all
+  remote_user: cc
+  
+  tasks:
+
+  - name: run the container and connect to the master node
+    shell: docker run --net="host" ksax/matlab-cctools /bin/bash -c "work_queue_worker -N TeamAZ_AZ45 -N TeamAZ_FL45"
+    async: 45
+    poll: 0
+    become_user: cc
