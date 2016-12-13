@@ -11,10 +11,13 @@ ________________________________________________________________________________
 
 maskData.py
 __________________________
-Dependencies:
-Arguments:
+Dependencies: 
+Python
+Arguments: 
+(1) The projection file
+(2) The file of lat/lon query coordinates
 Function/Output:
-
+-Places in stdout the lat/lon that satisfy the masking critereon. 
 
 createMakeflow.py
 ___________________________
