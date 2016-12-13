@@ -2,8 +2,8 @@ DATA PROCESSING/ANALYSIS
 ___________________________________________________________________________________________________________________________________
 ___________________________________________________________________________________________________________________________________
 (1) Run mergeCSVs.py to concatenate historical and future climate data
-(2)
-(3)
+(2) Run makeMakeflow.py to create makeflow file
+(3) Proceed with running containers and creating workers
 
 
 mergeCSVs.py
@@ -20,19 +20,20 @@ Function/Output:
 makeMakeflow.py
 ___________________________
 Dependencies:
+Python
+Python
 Arguments:
+(1) Implicitly uses all *.csv files in current directory
+
 Function/Output:
+(1) Makeflow.makeflow, a makeflow file specifying the task for each csv file
 
 
 Get_MoLS.sh
 ___________________________
 Dependencies:
+git
 Arguments:
 Function/Output:
-
-
-Run_Model.py
-___________________________
-Dependencies:
-Arguments:
-Function/Output:
+-Collects the github repo for MoLS, makes the necessary changes to use from another
+python file
