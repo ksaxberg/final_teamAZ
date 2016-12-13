@@ -37,3 +37,13 @@ Arguments:
 Function/Output:
 -Collects the github repo for MoLS, makes the necessary changes to use from another
 python file
+
+Run_Model.py
+___________________________
+Dependencies:
+Python, modified MoLS repo
+Arguments:
+(1) For a *.csv file of interest, include only *  (truncate .csv)
+Function/Output:
+-Runs the MoLS on the csv, which removes the header line and adds a new column
+representing the mosquito abundance prediction
