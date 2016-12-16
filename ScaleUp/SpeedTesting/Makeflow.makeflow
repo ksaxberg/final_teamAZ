@@ -1,2 +1,2 @@
-Timing.txt->timings.csv: Get_MoLS.py Run_Timing.py singleYear.csv fiveYear.csv
+timings.csv: Get_MoLS.sh Run_Timing.py singleYear.csv fiveYear.csv
     bash ./Get_MoLS.sh ; python Run_Timing.py
