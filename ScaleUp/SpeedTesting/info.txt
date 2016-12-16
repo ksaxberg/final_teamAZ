@@ -1,0 +1,9 @@
+Using rcp45_36.99_-113.63.csv as the test data set.
+
+Have cut the file up into 5 single year sections, and one 5 year collection.
+
+This is to be used with the script Run_Timing.py to provide information
+about runtimes on whatever computer configuration is setup. Run_Timing.py
+should be run through a makeflow program, as the only file of interest
+coming from the timing script is timing.txt. Requires MoLS to be in the same
+folder.
