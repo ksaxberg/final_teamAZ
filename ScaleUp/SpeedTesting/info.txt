@@ -6,4 +6,21 @@ This is to be used with the script Run_Timing.py to provide information
 about runtimes on whatever computer configuration is setup. Run_Timing.py
 should be run through a makeflow program, as the only file of interest
 coming from the timing script is timing.txt. Requires MoLS to be in the same
-folder.
+folder when run, which Get_MoLS.sh takes care of.
+
+For LocalRun.makeflow:
+
+makeflow LocalRun.makeflow
+    Will produce a file timingsLocal.csv
+    Represents 5 single year runs, and one 5 year run
+    Single, local worker
+
+
+For RemoteRun.makeflow:
+
+makeflow -T wq -N timingTest RemoteRun.makeflow -p $PORT 
+    Will produce several timing files, timingsRemote${i}.csv
+    Each represents the output of a worker on 5 single year, 1 five year
+    Meant to check with multiple workers on a single computer the effect of scaling
+    
+    To change the number of tasks, remove/add lines (Maybe script this going forward)

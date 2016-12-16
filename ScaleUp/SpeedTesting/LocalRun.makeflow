@@ -1,0 +1,2 @@
+timingsLocal.csv: Get_MoLS.sh Run_Timing.py singleYear.csv fiveYear.csv
+    bash ./Get_MoLS.sh ; python Run_Timing.py ; cp timings.csv timingsLocal.csv ; rm singleYear[0-9].csv fiveYear1.csv
