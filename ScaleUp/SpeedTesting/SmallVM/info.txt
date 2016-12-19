@@ -1,0 +1,1 @@
+Run in a docker container on a single-core VM with 1GB of ram. Swap space was used during calculations
